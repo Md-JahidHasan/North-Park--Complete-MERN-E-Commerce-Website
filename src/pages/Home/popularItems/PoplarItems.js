@@ -45,10 +45,10 @@ const PoplarItems = () => {
         },
     ]
     return (
-        <div>
+        <div className='my-8 mx-6'>
             <div className=" divider font-bold my-6">THE MOST POPULAR ITEMS</div>
 
-            <div className='grid h-96 grid-cols-2 gap-4'>
+            <div className='grid  md:grid-cols-2 gap-4'>
                 <div className='grid md:grid-cols-2 gap-y-8 justify-items-center'>
                     {
                         products.map(product => <NewProduct key={product.id} product={product}></NewProduct>)

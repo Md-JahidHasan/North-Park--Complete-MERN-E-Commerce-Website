@@ -38,7 +38,7 @@ const Navbar = () => {
                         </a>
                         <ul className="p-2 z-30">
                             <li><a>Shirt</a></li>
-                            <li>`<a>Pant</a>`</li>
+                            <li><a>Pant</a></li>
                             <li><a>T-Shirt</a></li>
                             <li><a>Shoe</a></li>
                         </ul>
