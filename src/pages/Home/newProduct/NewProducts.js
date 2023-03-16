@@ -66,8 +66,8 @@ const NewProducts = () => {
     ]
     return (
         <div>
-            <div className="divider font-bold mt-6">WHAT'S NEW</div>
-            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center  gap-8'>
+            <div className="divider font-bold my-12">WHAT'S NEW</div>
+            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center  gap-8 mx-10'>
                 {
                     products.map(product => <NewProduct key={product.id} product={product}></NewProduct>)
                 }

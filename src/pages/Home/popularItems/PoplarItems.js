@@ -55,7 +55,7 @@ const PoplarItems = () => {
                     }
 
                 </div>
-                <div className='mr-4 bg-[url("https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVucyUyMHNob2VzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60")] bg-cover'>
+                <div className='mr-4 bg-[url("https://images.unsplash.com/photo-1604868189265-219ba7bf7ea3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60")] bg-cover'>
 
                 </div>
             </div>
