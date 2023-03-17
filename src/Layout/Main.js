@@ -7,7 +7,9 @@ const Main = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <main className='bg-[#F6F6F2] min-h-[calc(100vh)]'>
+                <Outlet></Outlet>
+            </main>
             <Footer></Footer>
         </div>
     );

@@ -9,7 +9,7 @@ import { RiSecurePaymentLine } from 'react-icons/ri';
 const ProductDetail = () => {
     return (
         <div>
-            <div className='grid grid-cols-2  gap-8 justify-items-center mx-14 my-10'>
+            <div className='grid md:grid-cols-2  gap-8 justify-items-center mx-14 my-10'>
                 <div className='justify-self-end w-full'>
                     <img className='w-[100%]' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTxJL4s-i74dFD1v8j-EpPZjmlbTRIoUVvw&usqp=CAU" alt="" />
                 </div>
@@ -71,7 +71,7 @@ const ProductDetail = () => {
 
                 </div>
             </div>
-            <div className='mx-14'>
+            <div className='mx-14 mb-10'>
                 <h1 className='font-bold text-xl text-slate-500 m-2'>Data Sheet</h1>
                 <div>
                     <div className='grid grid-cols-2 gap-2 mb-2'>
