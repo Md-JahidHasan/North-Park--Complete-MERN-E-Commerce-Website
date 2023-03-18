@@ -45,7 +45,7 @@ const PoplarItems = () => {
         },
     ]
     return (
-        <div className='my-8 mx-6'>
+        <div className='pb-10 mx-6'>
             <div className=" divider font-bold my-6">THE MOST POPULAR ITEMS</div>
 
             <div className='grid  md:grid-cols-2 gap-4'>
