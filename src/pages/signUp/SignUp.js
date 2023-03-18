@@ -40,14 +40,23 @@ const SignUp = () => {
             }
         })
     }
-
+    console.log(process.env.REACT_APP_SERVER_DOMAIN);
     // ============= form submit =============
-    const handleSubmit = (e) =>{
+    const handleSubmit = async(e) =>{
         e.preventDefault();
         const { firstName, lastName, email, password, confirmPassword} = data;
 
         if( firstName && lastName && email && password && confirmPassword){
                 if(password === confirmPassword){
+                    const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`, {
+                        method:'POST',
+                        headers:{
+                            "content-type" : "application/json"
+                        },
+                        body:JSON.stringify(data)
+                    })
+                    const signupData = await fetchData.json()
+                    console.log(signupData);
                     alert('Successfull')
                 }else{
                 alert("Password doesn't match with confirm password...")
