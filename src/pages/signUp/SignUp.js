@@ -15,10 +15,7 @@ const SignUp = () => {
     }
 
 
-    // =========== handle profile image upload ===========
-    const handlUploadProfileImage = (e) =>{
-        console.log(e.target.files[0]);
-    }
+    
 
 
     // =========== Handle form data =============
@@ -27,7 +24,8 @@ const SignUp = () => {
         lastName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        profileImage: ""
     })
 
 
@@ -40,7 +38,36 @@ const SignUp = () => {
             }
         })
     }
-    console.log(process.env.REACT_APP_SERVER_DOMAIN);
+    console.log(process.env.REACT_APP_SERVER_DOMAIN, process.env.REACT_APP_imgbb_API_key);
+    
+    
+    // =========== handle profile image upload ===========
+    const handlUploadProfileImage = (e) => {
+        const imageHostKey = process.env.REACT_APP_imgbb_API_key;
+        const photo = e.target.files[0];
+        const formData = new FormData();
+        formData.append('image', photo);
+
+        const url = `https://api.imgbb.com/1/upload?&key=${imageHostKey}`
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(imgData =>{
+            console.log(imgData.data.display_url);
+            setData((preve)=>{
+                return {
+                    ...preve,
+                    profileImage: imgData.data.display_url
+                }
+            })
+            console.log("Data after image upload=", data);
+        })
+        // console.log(e.target.files[0]);
+    }
+    
     // ============= form submit =============
     const handleSubmit = async(e) =>{
         e.preventDefault();
@@ -79,7 +106,9 @@ const SignUp = () => {
                     
 
                     <label htmlFor="profileImage">
-                        <img className='w-28 h-28' src="https://animated-gif-creator.com/images/01/animated-4-gif-images-download_74.gif" alt="" />
+                        {
+                            data.profileImage ? <img className='w-28 h-28' src={data?.profileImage} alt="" /> : <img className='w-28 h-28' src="https://animated-gif-creator.com/images/01/animated-4-gif-images-download_74.gif" alt="" />
+                        }
                         <div className='absolute bottom-0 w-full text-center bg-slate-500 hover:bg-[#388087] bg-opacity-80 p-1 cursor-pointer'>
                             <p className='text-xs font-bold text-white'>Upload</p>
                             <p className='text-xs font-bold text-white'>Photo</p>
