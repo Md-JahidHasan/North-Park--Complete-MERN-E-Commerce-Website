@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import { async } from '@firebase/util';
+import React, { useContext, useState } from 'react';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
 
@@ -15,7 +17,7 @@ const SignUp = () => {
     }
 
 
-    
+    const { createUser, updateUser } = useContext(AuthContext)
 
 
     // =========== Handle form data =============
@@ -75,16 +77,28 @@ const SignUp = () => {
 
         if( firstName && lastName && email && password && confirmPassword){
                 if(password === confirmPassword){
-                    const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`, {
-                        method:'POST',
-                        headers:{
-                            "content-type" : "application/json"
-                        },
-                        body:JSON.stringify(data)
+                    createUser(email, password)
+                    .then(result=>{
+                        const user = result.user;
+                        console.log(user);
+                        
+                        const userInfo = {
+                            displayName: firstName + ' ' + lastName,
+                            photoURL: data.profileImage
+                        }
+                        updateUser(userInfo)
+                        .then(()=>{
+                            updateDataToDB()
+                        })
+                        .catch(error => {
+                            console.error(error)
+                        })
+                        
                     })
-                    const signupData = await fetchData.json()
-                    console.log(signupData);
-                    alert('Successfull')
+                    .catch(error => {
+                        console.error(error)
+                    })
+                    
                 }else{
                 alert("Password doesn't match with confirm password...")
                 }
@@ -93,7 +107,26 @@ const SignUp = () => {
             }
         }
         
-    
+    const updateDataToDB = async()=>{
+        const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`, {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        const responseData = await fetchData.json()
+        console.log(responseData);
+        alert(responseData.message);
+        setData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            profileImage: ""
+        })
+    }
 
 
     return (

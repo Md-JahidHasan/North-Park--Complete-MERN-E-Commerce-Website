@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const LogIn = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+
     // ========== Password show / Hide handling in password field ========= 
     const [showPassword, setShowPassword] = useState(false);
     const handleShowPassword = () => {
         setShowPassword(preve => !preve)
     }
 
+
+    // ========== From Data Handle ========= 
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -22,10 +29,24 @@ const LogIn = () => {
             }
         })
     }
-console.log('login', data);
 
-    const handleSubmit = () =>{
 
+    const { loginUser } = useContext(AuthContext)
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const {email, password} = data;
+        if(email && password){
+            loginUser(email, password)
+            .then((result)=>{
+                const user = result.user;
+                console.log(user);
+                navigate(from, {replace: true})
+            })
+            .catch((error)=>{
+                console.error(error);
+            })
+        }
     }
 
     return (

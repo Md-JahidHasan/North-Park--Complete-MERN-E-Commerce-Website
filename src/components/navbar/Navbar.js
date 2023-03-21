@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { RiSearchLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
+    const { logOutUser, user } = useContext(AuthContext)
     return (
-        <div className="navbar py-3 z-20">
+        <div className="navbar py-3 z-20 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -86,7 +88,7 @@ const Navbar = () => {
                             <li><a>Settings</a></li>
                             <li><Link to='/signup'>SignUp</Link></li>
                             <li><Link to='/login'>Login</Link></li>
-                            <li><a>Logout</a></li>
+                            <li><button onClick={logOutUser()}>Logout</button></li>
                         </ul>
                 </div>
             </div>
