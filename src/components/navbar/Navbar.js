@@ -5,7 +5,17 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
-    const { logOutUser, user } = useContext(AuthContext)
+    const { logOutUser, user } = useContext(AuthContext);
+    console.log(user);
+    const handleLogout = () =>{
+        logOutUser()
+        .then(()=>{
+
+        })
+        .catch(()=>{
+
+        })
+    }
     return (
         <div className="navbar py-3 z-20 ">
             <div className="navbar-start">
@@ -85,10 +95,10 @@ const Navbar = () => {
                                 <span className="badge">New</span>
                             </a>
                         </li>
-                            <li><a>Settings</a></li>
+                            <li><a>**{user?.displayName}</a></li>
                             <li><Link to='/signup'>SignUp</Link></li>
                             <li><Link to='/login'>Login</Link></li>
-                            <li><button onClick={logOutUser()}>Logout</button></li>
+                            <li><button onClick={handleLogout}>Logout</button></li>
                         </ul>
                 </div>
             </div>

@@ -1,10 +1,14 @@
 import { async } from '@firebase/util';
 import React, { useContext, useState } from 'react';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
     // ========== Password show / Hide handling in password field ========= 
     const [showPassword, setShowPassword] = useState(false);
@@ -88,7 +92,8 @@ const SignUp = () => {
                         }
                         updateUser(userInfo)
                         .then(()=>{
-                            updateDataToDB()
+                            updateDataToDB();
+                            navigate(from, { replace: true })
                         })
                         .catch(error => {
                             console.error(error)

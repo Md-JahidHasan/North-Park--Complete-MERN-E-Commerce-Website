@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Category = ({category}) => {
-    console.log(category.image)
+    // console.log(category.image)
     return (
         
         <div style={{backgroundImage:`url(${category?.image})`}} className={` h-[200px] duration-100 bg-cover flex items-center justify-center`}>
