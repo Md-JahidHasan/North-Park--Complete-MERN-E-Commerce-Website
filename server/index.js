@@ -34,6 +34,7 @@ const userSchema = mongoose.Schema({
     profileImage: String
 })
 
+
 // ========== Model =========
 const userModel = mongoose.model('user', userSchema)
 
@@ -66,8 +67,40 @@ app.post("/signup", async(req, res)=>{
 // =======######## Product Section #########=======
 // ========== Product Schema ============
 const productSchema = mongoose.Schema({
-    
+    model: String,
+    name: String,
+    rating: Number,
+    review: Array,
+    price: Number,
+    size:Array,
+    image: String,
+    category: String,
+    categoryId: Number,
+    stockItem: Number,
+    details: String,
+    composition: String,
+    style: String,
+    properties: String
 })
+
+// ========== Product Model =========
+const productModel = mongoose.model('product', productSchema);
+
+app.get('/products', async(req, res)=>{
+    const query = {};
+    const products = await productModel.find(query);
+    res.send(products)
+})
+app.get('/products/:productID', async(req, res)=>{
+    var ObjectId = (require('mongoose').Types.ObjectId);
+    const id = req.params.productID;
+    const filter = {
+        _id : new ObjectId(id)
+    }
+    const product = await productModel.findOne(filter);
+    res.send(product)
+})
+
 
 
 app.listen(PORT, ()=>console.log(`Server is running at port: ${PORT}`))
