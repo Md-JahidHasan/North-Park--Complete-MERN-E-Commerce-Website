@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import {BsStarHalf} from 'react-icons/bs';
 import {TbCurrencyTaka} from 'react-icons/tb';
 import { TbArrowsLeftRight } from 'react-icons/tb';
 import {FaTruck} from 'react-icons/fa';
 import { RiSecurePaymentLine } from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchProduct } from '../../features/product/productSlice';
 
 const ProductDetail = () => {
+
+    const {id} = useParams();
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(fetchProduct(id))
+    }, [dispatch, id])
+
+
+    const {error, isError, sLoading, product} = useSelector((state)=>state.product);
+    console.log(product);
+    const { category, categoryId, composition, details, image, model, name, price, properties, rating, review, size, stockItem, style, type, _id } = product;
+
     return (
         <div>
             <div className='grid md:grid-cols-2  gap-8 justify-items-center mx-14 py-10'>
                 <div className='justify-self-end w-full'>
-                    <img className='w-[100%]' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTxJL4s-i74dFD1v8j-EpPZjmlbTRIoUVvw&usqp=CAU" alt="" />
+                    <img className='w-[100%]' src={image} alt="" />
                 </div>
 
                 <div className='justify-self-start'>
 
-                    <h1 className='text-3xl mb-3 font-bold text-gray-600'>Casual Shoe</h1>
+                    <h1 className='text-3xl mb-3 font-bold text-gray-600'>{name}</h1>
 
                     <div className='flex items-center mb-3'>
                         <p className='flex mr-6'><AiFillStar></AiFillStar><AiFillStar></AiFillStar><AiFillStar></AiFillStar> <BsStarHalf></BsStarHalf></p>
@@ -25,27 +41,28 @@ const ProductDetail = () => {
                         </div>
                     </div>
 
-                    <h1 className='flex items-center text-3xl text-gray-700 font-extrabold mb-2'><TbCurrencyTaka /> 1200</h1>
+                    <h1 className='flex items-center text-3xl text-gray-700 font-extrabold mb-2'><TbCurrencyTaka /> {price}</h1>
 
                     <p className='text-sm mb-4'>Tax excluded Delivery: 1 to 3 weeks</p>
 
                     <div className='flex mb-3'>
-                        <p className='mr-4'>CATAGORY: Shoes</p>
-                        <p>IN STOCK: 17 items</p>
+                        <p className='mr-4'>CATAGORY: {category}</p>
+                        <p>IN STOCK: {category} items</p>
                     </div>
 
                     <div className='border-[1px] border-dashed border-gray-500 mb-3'></div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ex veritatis voluptas neque corporis quam aut rerum eligendi eos accusamus atque provident, quod quae voluptatem officiis vero? Distinctio, omnis odit!</p>
+                    <p>{details}</p>
 
                     <div className='border-[1px] border-dashed border-gray-500 my-3'></div>
 
                     <div className='my-6'>
                         <div className='flex items-center'>
                             <h2 className='font-bold mr-4'>SIZE :</h2>
-                            <p className='border-2 border-teal-200 px-2 mr-1'>S</p>
-                            <p className='border-2 border-teal-200 px-2 mr-1'>M</p>
-                            <p className='border-2 border-teal-200 px-2 mr-1'>L</p>
+                            {
+                                size?.map(p => <p className='border-2 border-teal-200 px-2 mr-1'>{p}</p>)
+                            }
+                            
                         </div>
                     </div>
 
@@ -71,16 +88,16 @@ const ProductDetail = () => {
 
                 </div>
             </div>
-            <div className='mx-14 mb-10'>
+            <div className='mx-14 pb-10'>
                 <h1 className='font-bold text-xl text-slate-500 m-2'>Data Sheet</h1>
                 <div>
                     <div className='grid grid-cols-2 gap-2 mb-2'>
                         <p className=' bg-slate-100 py-2 px-4'>Compositions</p>
-                        <p className=' bg-slate-100 py-2 px-4'>Cotton</p>
+                        <p className=' bg-slate-100 py-2 px-4'>{composition}</p>
                     </div>
                     <div className='grid grid-cols-2 gap-2 mb-2'>
                         <p className=' bg-slate-50 py-2 px-4 '>Styles</p>
-                        <p className=' bg-slate-50 py-2 px-4 '>Casual</p>
+                        <p className=' bg-slate-50 py-2 px-4 '>{style}</p>
                     </div>
                     <div className='grid grid-cols-2 gap-2 mb-2'>
                         <p className=' bg-slate-100 py-2 px-4 '>Properties</p>

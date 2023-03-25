@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NewProduct = ({product}) => {
     return (
-        <Link to='/product/1'>
+        <Link to={`/products/${product._id}`}>
             <div>
                 <img src={product.image} alt="" />
             </div>

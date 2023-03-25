@@ -3,8 +3,8 @@ import loadingImg from '../../assets/Blocks-1s-131px .gif';
 
 const Loading = () => {
     return (
-        <div>
-           <img src={loadingImg} alt="" />
+        <div className=''>
+           <img className='m-auto' src={loadingImg} alt="" />
         </div>
     );
 };
