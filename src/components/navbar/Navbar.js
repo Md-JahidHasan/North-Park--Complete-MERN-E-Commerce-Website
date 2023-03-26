@@ -38,6 +38,7 @@ const Navbar = () => {
                         <li><a>Blog</a></li>
                         <li><a>About</a></li>
                         <li><a>Contact</a></li>
+                        <li><label htmlFor="dashboard-drawer-np" className="btn btn-primary drawer-button lg:hidden">Open drawer</label></li>
                     </ul>
                 </div>
                 <h1 className=" normal-case text-2xl lg:ml-8 text-[#388087] font-bold">North Park</h1>
