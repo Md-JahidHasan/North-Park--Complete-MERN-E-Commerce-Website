@@ -59,6 +59,7 @@ const Navbar = () => {
                     <li><a>Shop</a></li>
                     <li><a>About</a></li>
                     <li><a>Contact</a></li>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
