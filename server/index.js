@@ -31,7 +31,8 @@ const userSchema = mongoose.Schema({
     },
     password: String,
     confirmPassword: String,
-    profileImage: String
+    profileImage: String,
+    role: String
 })
 
 

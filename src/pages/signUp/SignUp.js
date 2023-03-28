@@ -31,7 +31,8 @@ const SignUp = () => {
         email: "",
         password: "",
         confirmPassword: "",
-        profileImage: ""
+        profileImage: "",
+        role: "Customer"
     })
 
 
@@ -129,7 +130,8 @@ const SignUp = () => {
             email: "",
             password: "",
             confirmPassword: "",
-            profileImage: ""
+            profileImage: "",
+            role: "Customer"
         })
     }
 
