@@ -44,7 +44,7 @@ const Navbar = () => {
                 <h1 className=" normal-case text-2xl lg:ml-8 text-[#388087] font-bold">North Park</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 bg-cyan-600">
                     <li><Link to='/'>Home</Link></li>
                     <li tabIndex={0}>
                         <a>
