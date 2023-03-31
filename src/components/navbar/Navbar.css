@@ -1,0 +1,31 @@
+.main-navbar ul li{
+font-family:'Times New Roman', Times, serif;
+font-weight: 600;
+font-size: large;
+color: #000033;
+}
+
+
+/* ======== Bottom Navar ======= */
+.bottom-nav div select{
+    padding: 8px 20px;
+    font-size: large;
+    /* border-right: 2px solid rgb(88, 55, 2); */
+    
+    
+}
+.bottom-nav div select option{
+    padding-left: 40px;
+    font-size: large;
+    
+}
+.bottom-nav div ul li{
+    font-size: large;
+    padding: 8px 10px;
+    
+    
+}
+.bottom-nav div ul li:hover{
+    background: #FCD12A;
+    
+}
