@@ -16,7 +16,7 @@ const BottomNavbar = () => {
 
 
     return (
-        <div className='bottom-nav bg-[#FCD12A] flex items-center justify-between'>
+        <div className='bottom-nav bg-[#FCD12A] flex items-center justify-between sticky top-0 z-50 shadow-lg'>
 
             {/* =========== For Large Screen =========== */}
             <div className='md:flex items-center relative hidden  px-8 lg:px-16'>

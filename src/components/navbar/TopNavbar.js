@@ -57,7 +57,7 @@ const TopNavbar = () => {
                             <span className="font-bold text-lg">8 Items</span>
                             <span className="text-info">Subtotal: $999</span>
                             <div className="card-actions">
-                                <button className="btn bg-[#000033] btn-block">View wishlist</button>
+                                <button className="btn bg-[#002828] btn-block">View wishlist</button>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const TopNavbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
                         <div className="indicator hover:scale-125 hover:drop-shadow-[0_1px_1px_#00918f] duration-100">
-                            <HiOutlineShoppingCart className=' text-2xl text-[#FCD12A] '></HiOutlineShoppingCart>
+                            <HiOutlineShoppingCart className='text-2xl text-[#FCD12A] '></HiOutlineShoppingCart>
                             <span className="badge badge-sm indicator-item bg-red-500 hover:scale-110">8</span>
                         </div>
                     </label>
