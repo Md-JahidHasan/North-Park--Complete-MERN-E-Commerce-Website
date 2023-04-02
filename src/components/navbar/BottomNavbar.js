@@ -21,7 +21,7 @@ const BottomNavbar = () => {
             {/* =========== For Large Screen =========== */}
             <div className='md:flex items-center relative hidden  px-8 lg:px-16'>
                 <GiHamburgerMenu className='text-xl absolute'></GiHamburgerMenu>
-                <select className="bg-[#FCD12A]">
+                <select className="bg-[#FCD12A] outline-none ">
                     <option disabled selected>BROWSE CATEGORIES</option>
                     <option>Jeans</option>
                     <option>Shirts</option>

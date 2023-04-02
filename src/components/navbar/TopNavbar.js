@@ -3,6 +3,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/np-logo.png'
 
 
 const TopNavbar = () => {
@@ -15,8 +16,8 @@ const TopNavbar = () => {
     return (
         <div className='navbar bg-[#002828] px-4 py-3'>
             <div className='flex items-center navbar-start'>
-                <div className='border-[2px] border-yellow-500 rounded-full overflow-hidden w-12 mx-3'>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiMubHVllDl_kpVgLAw_1KPB9T41PZDgSEiw&usqp=CAU" alt="" />
+                <div className='border-[1px] border-yellow-500 rounded-[15px] overflow-hidden w-12 h-12 mx-3'>
+                    <img src={logo} alt="" />
                 </div>
                 <h1 className='text-[#FCD12A] font-serif text-xl sm:text-2xl md:text-3xl'>Noth Park</h1>
             </div>
