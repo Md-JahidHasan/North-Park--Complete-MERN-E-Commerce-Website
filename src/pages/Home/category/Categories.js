@@ -9,7 +9,7 @@ const Categories = () => {
         { id: 44, name: 'Shoes', image:'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60'}
     ]
     return (
-        <div className='grid grid-cols-4 gap-4 mt-4 lg:mx-4'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mt-4 mx-2 lg:mx-4'>
             {
                 categories.map(category=><Category key={category.id} category={category} ></Category>)
             }
