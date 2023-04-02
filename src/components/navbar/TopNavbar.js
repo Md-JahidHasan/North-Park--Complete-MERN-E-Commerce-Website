@@ -13,19 +13,19 @@ const TopNavbar = () => {
         console.log(e);
     }
     return (
-        <div className='navbar bg-[#000033] px-4 py-3'>
+        <div className='navbar bg-[#002828] px-4 py-3'>
             <div className='flex items-center navbar-start'>
                 <div className='border-[2px] border-yellow-500 rounded-full overflow-hidden w-12 mx-3'>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiMubHVllDl_kpVgLAw_1KPB9T41PZDgSEiw&usqp=CAU" alt="" />
                 </div>
-                <h1 className='text-[#FCD12A] font-serif text-3xl'>Noth Park</h1>
+                <h1 className='text-[#FCD12A] font-serif text-xl sm:text-2xl md:text-3xl'>Noth Park</h1>
             </div>
 
             {/*========= Search Field ==========*/}
-            <div className=' navbar-center w-2/5'>
+            <div className='hidden md:flex navbar-center w-2/5'>
                 <form className='flex items-center w-full' onSubmit={handleSubmit}>
                     <input
-                        className="bg-white outline-none border-none h-8 px-8 rounded-l-full w-full"
+                        className="bg-white outline-none border-none h-10 px-8 rounded-l w-full"
                         type="search"
                         name="search"
                         placeholder="Search Product"
@@ -33,7 +33,7 @@ const TopNavbar = () => {
                         onChange={(e) => setInput(e.target.value)}
                     />
                     <button
-                        className='bg-[#FCD12A] h-8 px-4 rounded-r-full'
+                        className='bg-[#FCD12A] h-10 px-4 rounded-r'
                         type='submit'
                     >
                         <RiSearchLine className='text-[#000033] text-2xl'></RiSearchLine>
@@ -47,7 +47,7 @@ const TopNavbar = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
                         <div className="indicator">
-                            <AiOutlineHeart className=' text-2xl text-[#FCD12A]'></AiOutlineHeart>
+                            <AiOutlineHeart className=' text-2xl text-[#FCD12A] hover:scale-125 hover:drop-shadow-[0_1px_1px_#00918f] duration-100'></AiOutlineHeart>
                             
                         </div>
                     </label>
@@ -64,9 +64,9 @@ const TopNavbar = () => {
                 
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                            <HiOutlineShoppingCart className=' text-2xl text-[#FCD12A]'></HiOutlineShoppingCart>
-                            <span className="badge badge-sm indicator-item bg-red-500">8</span>
+                        <div className="indicator hover:scale-125 hover:drop-shadow-[0_1px_1px_#00918f] duration-100">
+                            <HiOutlineShoppingCart className=' text-2xl text-[#FCD12A] '></HiOutlineShoppingCart>
+                            <span className="badge badge-sm indicator-item bg-red-500 hover:scale-110">8</span>
                         </div>
                     </label>
                     <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">

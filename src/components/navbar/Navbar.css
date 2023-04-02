@@ -2,7 +2,7 @@
 font-family:'Times New Roman', Times, serif;
 font-weight: 600;
 font-size: large;
-color: #000033;
+color: #002828;
 }
 
 
@@ -21,11 +21,10 @@ color: #000033;
 }
 .bottom-nav div ul li{
     font-size: large;
-    padding: 8px 10px;
-    
-    
+    font-weight: 500; 
 }
 .bottom-nav div ul li:hover{
-    background: #FCD12A;
+    background: #002828;
+    color:#FCD12A ;
     
 }
