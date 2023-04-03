@@ -15,7 +15,7 @@ const Banner = () => {
                 spaceBetween={0}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 1500,
+                    delay: 6500,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -37,7 +37,7 @@ const Banner = () => {
                             <img className='w-[400px] md:w-[690px] ' src={redShoe} alt="" />
                         </div>
                         <div className='absolute top-[1%] md:top-[1%] flex flex-col items-start md:items-end md:left-[29%] p-12'>
-                            <h1 className='text-4xl text-white font-bold my-4'>Pickk The Best Sneakers</h1>
+                            <h1 className='text-4xl text-white font-bold my-4'>Pick The Best Sneakers</h1>
                             <p className='text-slate-200 '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             <p className='text-slate-200'> Nisi id nes ciunt optio recusandae quo.</p>
                             <button className='px-6 py-2 font-bold my-6 ml-8 md:mr-8 rounded-br-2xl md:rounded-br-sm md:rounded-tl-2xl rounded-sm bg-[#FCD12A] text-[#002828] shadow-xl hover:shadow-none hover:bg-[#002828] hover:text-[#FCD12A] duration-150 '>Buy Now</button>

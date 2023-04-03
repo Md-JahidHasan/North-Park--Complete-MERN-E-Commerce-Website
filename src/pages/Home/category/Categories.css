@@ -1,0 +1,10 @@
+/* =========== category card ============ */
+.category_card:hover .category_div{
+    background-color: #fcd22a97;
+}
+.category_card{
+    transition-duration: 300ms;
+}
+.category_card:hover{
+    transform: scale(1.1);
+}
