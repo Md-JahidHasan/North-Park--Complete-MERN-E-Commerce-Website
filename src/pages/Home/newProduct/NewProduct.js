@@ -8,8 +8,13 @@ const NewProduct = ({product}) => {
                 <img src={product.image} alt="" />
             </div>
             <div>
-                <h1>{product.name}</h1>
-                <p>{product.price}</p>
+                <div>
+                    <h1>{product.name}</h1>
+                    <p>{product.price}</p>
+                </div>
+                <div>
+                    
+                </div>
             </div>
         </Link>
     );
