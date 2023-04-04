@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RiHeartLine } from 'react-icons/ri';
+import { AiFillHeart } from 'react-icons/ai';
 import { TbCurrencyTaka } from 'react-icons/tb';
 
 const NewProduct = ({product}) => {
@@ -12,10 +12,13 @@ const NewProduct = ({product}) => {
             <div className='flex justify-between p-2'>
                 <div>
                     <h1 className='text-xl font-bold'>{product.name}</h1>
-                    <p className='flex items-center'><TbCurrencyTaka></TbCurrencyTaka>{product.price}</p>
+                    <p className='flex items-center'>
+                        <TbCurrencyTaka></TbCurrencyTaka>{product.price}
+                        <span className='text-sm ml-1'> (Incl. VAT)</span>
+                    </p>
                 </div>
                 <div>
-                    <RiHeartLine></RiHeartLine>
+                    <AiFillHeart></AiFillHeart>
                 </div>
             </div>
             <button className='bg-yellow-400 w-full p-2'>ADD TO CART</button>
