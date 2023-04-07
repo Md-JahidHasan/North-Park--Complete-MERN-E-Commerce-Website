@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillHeart } from 'react-icons/ai';
 import { TbCurrencyTaka } from 'react-icons/tb';
+import './NewProduct.css';
 
 const NewProduct = ({product}) => {
     return (
-        <Link className='shadow-lg hover:shadow-sm  rounded-sm' to={`/products/${product._id}`}>
+        <div className='shadow-md hover:shadow-sm  rounded-sm w-[250px]  product-card'>
             <div>
-                <img className='' src={product.image} alt="" />
+                <img className='w-full card-image' src={product.image} alt="" />
             </div>
             <div className='flex justify-between p-2'>
                 <div>
@@ -21,8 +22,8 @@ const NewProduct = ({product}) => {
                     <AiFillHeart></AiFillHeart>
                 </div>
             </div>
-            <button className='bg-yellow-400 w-full p-2'>ADD TO CART</button>
-        </Link>
+            <Link to={`/products/${product._id}`} className='bg-yellow-400 w-full p-2 text-center detail-button'>VIEW DETAIL</Link>
+        </div>
     );
 };
 

@@ -1,0 +1,25 @@
+.product-card{
+    transition-duration: 100ms;
+    height: 330px;
+}
+
+/* .product-card:hover{
+    background-color:red;
+    
+} */
+
+.detail-button{
+    display:none
+    /* scale: 2; */
+}
+
+.card-image{
+    height: 270px;
+    /* transition-duration: 100ms; */
+}
+.product-card:hover .card-image{
+    height: 223px;
+}
+.product-card:hover .detail-button{
+    display:flex;
+}
