@@ -22,7 +22,7 @@ const NewProduct = ({product}) => {
                     <AiFillHeart></AiFillHeart>
                 </div>
             </div>
-            <Link to={`/products/${product._id}`} className='bg-yellow-400 w-full p-2 text-center detail-button'>VIEW DETAIL</Link>
+            <Link to={`/products/${product._id}`} ><p className='bg-yellow-400  p-2 text-center detail-button'>VIEW DETAIL</p></Link>
         </div>
     );
 };

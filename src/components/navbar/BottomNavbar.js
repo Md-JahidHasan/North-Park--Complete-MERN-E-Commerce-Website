@@ -29,8 +29,12 @@ const BottomNavbar = () => {
                     <option>Shoes</option>
                 </select>
                 <ul className='flex'>
-                    <li className='border-l-2 ml-2 border-[#002828] py-2 px-2 lg:px-4 '>Home</li>
-                    <li className=' py-2 px-2 lg:px-4 '>Shop</li>
+                    <li className='border-l-2 ml-2 border-[#002828] py-2 px-2 lg:px-4 '>
+                        <Link to='/'>Home</Link>
+                    </li>
+                    <li className=' py-2 px-2 lg:px-4 '>
+                        <Link to='/'>Shop</Link>
+                    </li>
                     <li className=' py-2 px-2 lg:px-4 '>About</li>
                     <li className=' py-2 px-2 lg:px-4 '>Contact</li>
                     <li className=' py-2 px-2 lg:px-4 '><Link to='/dashboard'>Dashboard</Link></li>
@@ -83,9 +87,9 @@ const BottomNavbar = () => {
                 </form>
             </div>
 
-            <div className='p-3 md:px-8 lg:px-16'>
+            <Link to='login' className='p-3 md:px-8 lg:px-16'>
                 <FaUserAlt className='scale-110 drop-shadow-xl'></FaUserAlt>
-            </div>
+            </Link>
             
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import {BsStarHalf} from 'react-icons/bs';
 import {TbCurrencyTaka} from 'react-icons/tb';
@@ -11,17 +11,24 @@ import { fetchProduct } from '../../features/product/productSlice';
 
 const ProductDetail = () => {
 
+    const [sizeSelect, setSizeSelect] = useState('')
+
     const {id} = useParams();
     const dispatch = useDispatch();
 
     useEffect(()=>{
         dispatch(fetchProduct(id))
-    }, [dispatch, id])
+    }, [dispatch, id]);
+
+
+    const handleSizeBtn = (size) =>{
+        setSizeSelect(size)
+    }
 
 
     const {error, isError, sLoading, product} = useSelector((state)=>state.product);
     console.log(product);
-    const { category, categoryId, composition, details, image, model, name, price, properties, rating, review, size, stockItem, style, type, _id } = product;
+    const { category, categoryId, composition, details, image, model, name, price, properties, rating, review, size, stockItem, style, type, _id, sizeWiseQuantity } = product;
 
     return (
         <div>
@@ -60,7 +67,7 @@ const ProductDetail = () => {
                         <div className='flex items-center'>
                             <h2 className='font-bold mr-4'>SIZE :</h2>
                             {
-                                size?.map(p => <p className='border-2 border-teal-200 px-2 mr-1'>{p}</p>)
+                                sizeWiseQuantity?.map(p => <p onClick={() => handleSizeBtn(p?.size)} className={`border-2  px-2 mr-1 ${sizeSelect === p?.size ? 'border-teal-500' :'border-teal-200'}`}>{p?.size}</p>)
                             }
                             
                         </div>

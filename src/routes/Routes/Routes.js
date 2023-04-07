@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
                 element:<AddProduct></AddProduct>
             },
             {
-                path:'/dashboard/wishLists',
+                path:'/dashboard/wishList',
                 element:<WishLists></WishLists>
             }
         ]

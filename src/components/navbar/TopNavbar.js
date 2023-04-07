@@ -45,14 +45,14 @@ const TopNavbar = () => {
 
             <div className="navbar-end">
 
-                <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle">
+                <div className="">
+                    <Link to="/dashboard/wishList" className="btn btn-ghost btn-circle">
                         <div className="indicator">
                             <AiOutlineHeart className=' text-2xl text-[#FCD12A] hover:scale-125 hover:drop-shadow-[0_1px_1px_#00918f] duration-100'></AiOutlineHeart>
                             
                         </div>
-                    </label>
-                    <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    </Link>
+                    {/* <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
                         <div className="card-body">
                             <span className="font-bold text-lg">8 Items</span>
                             <span className="text-info">Subtotal: $999</span>
@@ -60,7 +60,7 @@ const TopNavbar = () => {
                                 <button className="btn bg-[#002828] btn-block">View wishlist</button>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 
                 <div className="dropdown dropdown-end">
