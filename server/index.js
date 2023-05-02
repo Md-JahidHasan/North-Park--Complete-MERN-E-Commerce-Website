@@ -92,6 +92,16 @@ app.get('/products', async(req, res)=>{
     const products = await productModel.find(query);
     res.send(products)
 })
+
+app.get('/shopProducts',
+async(req, res)=>{
+    const search = req.query.search;
+    console.log(search);
+    const query = {};
+    const products = await productModel.find(query);
+    res.send(products)
+})
+
 app.get('/products/:productID', async(req, res)=>{
     var ObjectId = (require('mongoose').Types.ObjectId);
     const id = req.params.productID;
@@ -99,7 +109,7 @@ app.get('/products/:productID', async(req, res)=>{
         _id : new ObjectId(id)
     }
     const product = await productModel.findOne(filter);
-    res.send(product)
+    res.send(product);
 })
 
 

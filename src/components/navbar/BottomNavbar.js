@@ -7,12 +7,13 @@ import { RiSearchLine } from 'react-icons/ri';
 
 const BottomNavbar = () => {
 
-
-    const [input, setInput] = useState('')
-    const handleSubmit = (e) => {
+    const [input, setInput] = useState('');
+    const handleSearchSubmit = (e) => {
         e.preventDefault()
         console.log(e);
+        
     }
+    console.log(input);
 
 
     return (
@@ -33,7 +34,7 @@ const BottomNavbar = () => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li className=' py-2 px-2 lg:px-4 '>
-                        <Link to='/'>Shop</Link>
+                        <Link to='/shop'>Shop</Link>
                     </li>
                     <li className=' py-2 px-2 lg:px-4 '>About</li>
                     <li className=' py-2 px-2 lg:px-4 '>Contact</li>
@@ -59,7 +60,7 @@ const BottomNavbar = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        <li><a>Shop</a></li>
+                        <li><Link to='/shop'>Shop</Link></li>
                         <li><a>Blog</a></li>
                         <li><a>About</a></li>
                         <li><a>Contact</a></li>
@@ -69,7 +70,7 @@ const BottomNavbar = () => {
             </div>
 
             <div className=' w-3/4 sm:w-2/3 md:hidden'>
-                <form className='flex items-center w-full' onSubmit={handleSubmit}>
+                <form className='flex items-center w-full' onSubmit={handleSearchSubmit}>
                     <input
                         className="bg-white outline-none border-none h-8 px-8 rounded-l w-full"
                         type="search"

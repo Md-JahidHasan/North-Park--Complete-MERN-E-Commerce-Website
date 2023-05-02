@@ -45,7 +45,7 @@ const SignUp = () => {
             }
         })
     }
-    console.log(process.env.REACT_APP_SERVER_DOMAIN, process.env.REACT_APP_imgbb_API_key);
+    // console.log(process.env.REACT_APP_SERVER_DOMAIN, process.env.REACT_APP_imgbb_API_key);
     
     
     // =========== handle profile image upload ===========

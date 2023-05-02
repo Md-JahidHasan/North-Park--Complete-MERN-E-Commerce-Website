@@ -67,7 +67,11 @@ const ProductDetail = () => {
                         <div className='flex items-center'>
                             <h2 className='font-bold mr-4'>SIZE :</h2>
                             {
-                                sizeWiseQuantity?.map(p => <p onClick={() => handleSizeBtn(p?.size)} className={`border-2  px-2 mr-1 ${sizeSelect === p?.size ? 'border-teal-500' :'border-teal-200'}`}>{p?.size}</p>)
+                                sizeWiseQuantity?.map(p => <p
+                                    onClick={() => handleSizeBtn(p?.size)} className={`border-2  w-8 h-8 mr-1 text-center ${sizeSelect === p?.size ? 'border-teal-500' :'border-teal-200'}`}
+                                    >
+                                        {p?.size}
+                                    </p>)
                             }
                             
                         </div>
