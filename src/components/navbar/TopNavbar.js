@@ -2,19 +2,32 @@ import React, { useState } from 'react';
 import { RiSearchLine } from "react-icons/ri";
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/np-logo.png'
+import { useDispatch } from 'react-redux';
+import { addSearchText } from '../../features/search/filterSlice';
 
 
 const TopNavbar = () => {
 
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+//============ Product search feature ============
     const [input, setInput] = useState('')
     const handleSubmit =(e)=>{
         e.preventDefault()
-        console.log(e);
+        console.log(input);
+        navigate('/shop')
+        dispatch(addSearchText(input))
     }
+
+
+
     return (
         <div className='navbar bg-[#002828] px-4 py-3'>
+
+            {/*========= Logo & Name ==========*/}
             <div className='flex items-center navbar-start'>
                 <div className='border-[1px] border-yellow-500 rounded-[15px] overflow-hidden w-12 h-12 mx-3'>
                     <img src={logo} alt="" />
@@ -42,7 +55,7 @@ const TopNavbar = () => {
                 </form>
             </div>
 
-
+            {/*========= Wishlist and Cart button ==========*/}
             <div className="navbar-end">
 
                 <div className="">

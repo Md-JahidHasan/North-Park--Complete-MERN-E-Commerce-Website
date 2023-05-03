@@ -13,8 +13,8 @@ const initialState = {
 
 
 // =========== Thunk Function ============
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()=>{
-    const products = await getProducts();
+export const fetchProducts = createAsyncThunk('products/fetchProducts', async ({searchText})=>{
+    const products = await getProducts(searchText);
     return products;
 })
 

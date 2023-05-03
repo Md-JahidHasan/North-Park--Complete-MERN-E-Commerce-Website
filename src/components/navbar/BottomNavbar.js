@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaUserAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 import { RiSearchLine } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { addSearchText } from '../../features/search/filterSlice';
 
 const BottomNavbar = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
+
+//============ Product search feature ============
     const [input, setInput] = useState('');
     const handleSearchSubmit = (e) => {
         e.preventDefault()
-        console.log(e);
-        
+        navigate('/shop')
+        dispatch(addSearchText(input))
+    
     }
-    console.log(input);
 
 
     return (
         <div className='bottom-nav bg-[#FCD12A] flex items-center justify-between sticky top-0 z-50 shadow-lg'>
 
-            {/* =========== For Large Screen =========== */}
+            {/* ================ For Large Screen ============= */}
+            {/* =========== Categories and nav buttons =========== */}
             <div className='md:flex items-center relative hidden  px-8 lg:px-16'>
                 <GiHamburgerMenu className='text-xl absolute'></GiHamburgerMenu>
                 <select className="bg-[#FCD12A] outline-none ">
@@ -43,7 +50,8 @@ const BottomNavbar = () => {
             </div>
 
 
-            {/* =========== For Small Screen =========== */}
+            {/* ================== For Small Screen ============== */}
+            {/* =========== Dropdown Categories and nav buttons =========== */}
             <div className='md:hidden'>
                 <div className="dropdown main-navbar bg-amber-400">
                     <label tabIndex={0} className="btn btn-ghost ">
@@ -69,6 +77,8 @@ const BottomNavbar = () => {
                 </div>
             </div>
 
+
+            {/* =========== Search Field =========== */}
             <div className=' w-3/4 sm:w-2/3 md:hidden'>
                 <form className='flex items-center w-full' onSubmit={handleSearchSubmit}>
                     <input
@@ -88,6 +98,7 @@ const BottomNavbar = () => {
                 </form>
             </div>
 
+            {/* ============= Profile Button =============== */}
             <Link to='login' className='p-3 md:px-8 lg:px-16'>
                 <FaUserAlt className='scale-110 drop-shadow-xl'></FaUserAlt>
             </Link>

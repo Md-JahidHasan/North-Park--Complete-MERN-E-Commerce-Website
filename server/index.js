@@ -96,8 +96,16 @@ app.get('/products', async(req, res)=>{
 app.get('/shopProducts',
 async(req, res)=>{
     const search = req.query.search;
-    console.log(search);
-    const query = {};
+    console.log('---',search);
+    let query = {}
+    if(search.length > 0){
+        query = {
+            $text: {
+                $search: search
+            }
+        };
+    }
+    
     const products = await productModel.find(query);
     res.send(products)
 })
