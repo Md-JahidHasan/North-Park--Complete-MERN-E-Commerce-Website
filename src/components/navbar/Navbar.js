@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import logo from '../../assets/images/np-logo.png'
 import { RiSearchLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
@@ -18,8 +19,10 @@ const Navbar = () => {
         })
     }
     return (
-        <div className="navbar z-20 ">
+        <div className="navbar z-20 bg-amber-400">
             <div className="navbar-start">
+
+                {/* ========= for small screen ========== */}
                 <div className="dropdown main-navbar">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -35,15 +38,23 @@ const Navbar = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        <li><a>Shop</a></li>
+                        <li><Link to='/shop'>Shop</Link></li>
                         <li><a>Blog</a></li>
                         <li><a>About</a></li>
                         <li><a>Contact</a></li>
                         <li><label htmlFor="dashboard-drawer-np" className="btn btn-primary drawer-button lg:hidden">Open drawer</label></li>
                     </ul>
                 </div>
-                <h1 className=" normal-case text-2xl lg:ml-8 text-[#388087] font-bold">North Park</h1>
+
+                {/* =========== Name and logo =========== */}
+                <div className='border-[1px] lg:ml-8 border-[#002828] bg-[#002828] rounded-[15px] overflow-hidden w-14 h-14 mx-3'>
+                    <img src={logo} alt="" />
+                </div>
+                <h1 className=" normal-case text-2xl font-serif text-[#002828] font-bold">North Park</h1>
+
             </div>
+
+
             <div className="navbar-center hidden lg:flex main-navbar">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to='/'>Home</Link></li>
@@ -58,7 +69,7 @@ const Navbar = () => {
                             <li><a>Shoe</a></li>
                         </ul>
                     </li>
-                    <li><a>Shop</a></li>
+                    <li><Link to='/shop'>Shop</Link></li>
                     <li><a>About</a></li>
                     <li><a>Contact</a></li>
                     <li><Link to='/dashboard'>Dashboard</Link></li>
