@@ -8,7 +8,7 @@ import './Navbar.css';
 
 const Navbar = () => {
     const { logOutUser, user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const handleLogout = () =>{
         logOutUser()
         .then(()=>{
@@ -47,10 +47,10 @@ const Navbar = () => {
                 </div>
 
                 {/* =========== Name and logo =========== */}
-                <div className='border-[1px] lg:ml-8 border-[#002828] bg-[#002828] rounded-[15px] overflow-hidden w-14 h-14 mx-3'>
-                    <img src={logo} alt="" />
+                <div className='border-[1px] lg:ml-8 border-[#002828] bg-[#002828] rounded-[15px] overflow-hidden w-12 sm:w-14 h-12 sm:h-14 mx-2 sm:mx-3'>
+                    <img className='h-full' src={logo} alt="" />
                 </div>
-                <h1 className=" normal-case text-2xl font-serif text-[#002828] font-bold">North Park</h1>
+                <h1 className=" normal-case sm:text-2xl font-serif text-[#002828] font-bold">North Park</h1>
 
             </div>
 
@@ -78,7 +78,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 <div>
                     <RiSearchLine className='text-2xl'></RiSearchLine>
-                </div>
+                </div> 
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
                             <div className="indicator">

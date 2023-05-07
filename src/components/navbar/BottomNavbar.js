@@ -72,6 +72,7 @@ const BottomNavbar = () => {
                         <li><a>Blog</a></li>
                         <li><a>About</a></li>
                         <li><a>Contact</a></li>
+                        <li><Link to='/dashboard'>Dashboard</Link></li>
                         <li><label htmlFor="dashboard-drawer-np" className="btn btn-primary drawer-button lg:hidden">Open drawer</label></li>
                     </ul>
                 </div>
