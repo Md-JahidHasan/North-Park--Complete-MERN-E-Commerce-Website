@@ -5,6 +5,37 @@ import { IoIosAdd } from 'react-icons/io';
 
 const AddProduct = () => {
 
+    // ================= Handle Form Data ==================
+    const [data, setData] = useState({
+        model: "",
+        name: "",
+        rating: 0,
+        review: [],
+        type: "",
+        image: "",
+        size: [],
+        price: 0,
+        stockItem: 0,
+        category: "",
+        categoryId: "",
+        details: "",
+        composition: "",
+        style: "",
+        properties: "",
+        sizeWiseQuantity: []
+    })
+    const handleOnChange = (e) => {
+        const { name, value } = e.target;
+        setData((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+    
+// =================================================================
+
 // ================= Products all Size adding feature ================== 
     const [sizeInput, setSizeInput] = useState('')
     const getData =(size) =>{
@@ -19,7 +50,15 @@ const AddProduct = () => {
             setSize((prev) => {
                 return [...prev, sizeInput]
             })
+            setData((prev)=>{
+                return {
+                    ...prev,
+                    [size]: (prev)=>  [...prev, sizeInput]
+                    
+                }
+            })
             setSizeInput('')
+            console.log(data.size);
         }
         
     }
@@ -47,34 +86,6 @@ const handleAddSizeWiseQuantity =()=>{
 // =========================================================
 
 
-// ================= Handle Form Data ==================
-    const [data, setData] = useState({
-        model: "",
-        name: "",
-        rating: 0,
-        review: [],
-        type: "",
-        image: "",
-        size: size,
-        price: 0,
-        stockItem: 0,
-        category: "",
-        categoryId: "",
-        details: "",
-        composition: "",
-        style: "",
-        properties: "",
-        sizeWiseQuantity: []
-    })
-    const handleOnChange = (e) =>{
-        const {name, value} = e.target;
-        setData((prev)=>{
-            return {
-                ...prev,
-                [name] : value
-            }
-        })
-    }
     console.log(data);
 
     return (
@@ -129,7 +140,7 @@ const handleAddSizeWiseQuantity =()=>{
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
                     <input name='properties' value={data.properties} onChange={handleOnChange} type="text" placeholder="Properties" className="input w-full" />
-                    <input name='categoryId' value={data.categoryId} onChange={handleOnChange} type="text" placeholder="Category Id" className="input sm:ml-1 w-full my-1" />
+                    <input name='categoryId' value={data.categoryId} onChange={handleOnChange} type="text"  placeholder="Category Id" className="input sm:ml-1 w-full my-1" />
                 </div>
 
 
