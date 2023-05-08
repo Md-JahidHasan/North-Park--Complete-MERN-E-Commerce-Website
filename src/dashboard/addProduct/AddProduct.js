@@ -4,7 +4,6 @@ import { IoIosAdd } from 'react-icons/io';
 
 
 const AddProduct = () => {
-    
 
 // ================= Products all Size adding feature ================== 
     const [sizeInput, setSizeInput] = useState('')
@@ -45,10 +44,7 @@ const handleAddSizeWiseQuantity =()=>{
         })
     }
 }
-console.log(sizeWiseQuantityInput, sizeWiseQuantity);
-
-
-
+// =========================================================
 
 
 // ================= Handle Form Data ==================
@@ -70,18 +66,28 @@ console.log(sizeWiseQuantityInput, sizeWiseQuantity);
         properties: "",
         sizeWiseQuantity: []
     })
+    const handleOnChange = (e) =>{
+        const {name, value} = e.target;
+        setData((prev)=>{
+            return {
+                ...prev,
+                [name] : value
+            }
+        })
+    }
+    console.log(data);
 
     return (
-        <div className='min-h-screen text-center'>
+        <div className='min-h-screen text-center '>
             <h1 className='text-yellow-200  m-4 text-2xl'>Upload New Product</h1>
 
-            <form className='text-gray-400 px-4' action="">
+            <form className='text-gray-400 px-4 pb-40' action="">
                 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder="Product Name" className="input w-full my-1 sm:w-3/5" />
+                    <input name='name' value={data.name} onChange={handleOnChange} type="text" placeholder="Product Name" className="input w-full my-1 sm:w-3/5" />
 
-                    <select className="select sm:ml-1 w-full sm:w-2/5">
+                    <select name='category' value={data.category} onChange={handleOnChange} className="select sm:ml-1 w-full sm:w-2/5">
                         <option disabled selected>Select Category</option>
                         <option>Shirt</option>
                         <option>T-Shirt</option>
@@ -98,35 +104,42 @@ console.log(sizeWiseQuantityInput, sizeWiseQuantity);
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder="Product Price" className="input w-full" />
-                    <input type="text" placeholder="Product model" className="input sm:ml-1 w-full my-1" />
+                    <input name='price' value={data.price} onChange={handleOnChange} type="text" placeholder="Product Price" className="input w-full" />
+
+                    <input name='model' value={data.model} onChange={handleOnChange} type="text" placeholder="Product model" className="input sm:ml-1 w-full my-1" />
+                </div>
+
+
+                <div className=' mb-2 w-full rounded sm:flex items-center justify-center'>
+                    <select name='type' value={data.type} onChange={handleOnChange} className="select  w-full sm:w-2/5">
+                        <option disabled selected>Select Type</option>
+                        <option>Formal</option>
+                        <option>Casual</option>
+                    </select>
+
+                    <input name='composition' value={data.composition} onChange={handleOnChange} type="text" placeholder="Product Composition" className="input w-full sm:ml-1" />
                 </div>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder="Product Composition" className="input w-full" />
+                    <input name='quantity' value={data.quantity} onChange={handleOnChange} type="text" placeholder="Quantity" className="input w-full" />
+                    <input name='style' value={data.style} onChange={handleOnChange} type="text" placeholder="Style" className="input sm:ml-1 w-full" />
                 </div>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder="Quantity" className="input w-full" />
-                    <input type="text" placeholder="Style" className="input sm:ml-1 w-full my-1" />
+                    <input name='properties' value={data.properties} onChange={handleOnChange} type="text" placeholder="Properties" className="input w-full" />
+                    <input name='categoryId' value={data.categoryId} onChange={handleOnChange} type="text" placeholder="Category Id" className="input sm:ml-1 w-full my-1" />
                 </div>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder="Composition" className="input w-full" />
-                    <input type="text" placeholder="Category Id" className="input sm:ml-1 w-full my-1" />
-                </div>
-
-
-                <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <textarea className="textarea w-full" placeholder="Product Detail"></textarea>
+                    <textarea name='details' value={data.details} onChange={handleOnChange} className="textarea w-full" placeholder="Product Detail"></textarea>
                 </div>
                 
 
                 <div className=' w-full rounded flex items-center justify-center'>
-                    <input type="text" placeholder={size.length === 0 ? `Product Size` : size.map(x => x)} disabled className="input rounded-r-none w-[60%] disabled:bg-yellow-100 disabled:font-semibold  disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
+                    <input type="text" placeholder={size.length === 0 ? `Product Size` : size.map(x => x)} disabled className="input rounded-r-none w-[60%] disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
 
                     <input type="text" onChange={getData} name='productSize' placeholder="Add size" value={sizeInput} className="input rounded-none w-[30%] my-1 focus:outline-none" />
 
@@ -135,7 +148,7 @@ console.log(sizeWiseQuantityInput, sizeWiseQuantity);
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder={sizeWiseQuantity.length === 0 ? `Product Size: Quantity` : sizeWiseQuantity.map(x => `${x.size}:${x.quantity}`)} disabled className="input  w-full disabled:bg-yellow-100 disabled:font-semibold  disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
+                    <input type="text" placeholder={sizeWiseQuantity.length === 0 ? `Product size name : Quantity of that size` : sizeWiseQuantity.map(x => `${x.size}:${x.quantity}`)} disabled className="input  w-full disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
                 </div>
 
 
