@@ -50,13 +50,14 @@ const AddProduct = () => {
             setSize((prev) => {
                 return [...prev, sizeInput]
             })
-            setData((prev)=>{
-                return {
-                    ...prev,
-                    [size]: (prev)=>  [...prev, sizeInput]
+            // setData((prev)=>{
+            //     return {
+            //         ...prev,
+            //         [size]: (prev)=>  [...prev, sizeInput]
                     
-                }
-            })
+            //     }
+            // })
+            data.size.push(sizeInput)
             setSizeInput('')
             console.log(data.size);
         }
@@ -81,6 +82,7 @@ const handleAddSizeWiseQuantity =()=>{
                 sizeWiseQuantityInput
             ]
         })
+        data.sizeWiseQuantity.push(sizeWiseQuantityInput)
     }
 }
 // =========================================================
