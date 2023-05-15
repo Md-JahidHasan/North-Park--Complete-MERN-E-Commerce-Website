@@ -88,17 +88,26 @@ const handleAddSizeWiseQuantity =()=>{
 // =========================================================
 
 
+// =================== Handle Form  ========================
+const handleFormSubmit = (e) =>{
+    e.preventDefault()
     console.log(data);
+    console.log('asd');
+}
+// =========================================================
+
+
+    // console.log(data);
 
     return (
         <div className='min-h-screen text-center '>
-            <h1 className='text-yellow-200  m-4 text-2xl'>Upload New Product</h1>
+            <h1 className='text-amber-400  mt-10 mb-4 font-bold text-2xl'>Upload New Product</h1>
 
-            <form className='text-gray-400 px-4 pb-40' action="">
+            <form onSubmit={handleFormSubmit} className='text-gray-400 px-4 pb-40' action="">
                 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input name='name' value={data.name} onChange={handleOnChange} type="text" placeholder="Product Name" className="input w-full my-1 sm:w-3/5" />
+                    <input name='name' value={data.name} onChange={handleOnChange} required type="text" placeholder="Product Name" className="input w-full my-1 sm:w-3/5" />
 
                     <select name='category' value={data.category} onChange={handleOnChange} required className="select sm:ml-1 w-full sm:w-2/5">
                         <option disabled selected>Select Category</option>
@@ -110,10 +119,17 @@ const handleAddSizeWiseQuantity =()=>{
                 </div>
 
 
-                <div className=' my-1 w-full bg-white rounded flex items-center justify-center'>
+                <label htmlFor="productImage" className=' my-1 w-full bg-white rounded flex items-center justify-center relative hover:opacity-90  hover:font-bold '>
+                    {/* <label htmlFor="productImage"> */}
+                        <img className='w-[180px]' src={picUploadLogo} alt="" />
+                        <div className='absolute top-[60%] left-[38%]'>
+                            <p className=''>Uppload Image</p>
+                        </div>
+                        <input type="file" className='hidden' name="productImage" id="productImage" required />
+                    {/* </label> */}
                     {/* <BsCloudUpload></BsCloudUpload> */}
-                    <img className='w-[180px]' src={picUploadLogo} alt="" />
-                </div>
+                    
+                </label>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
@@ -152,7 +168,7 @@ const handleAddSizeWiseQuantity =()=>{
                 
 
                 <div className=' w-full rounded flex items-center justify-center'>
-                    <input type="text" placeholder={size.length === 0 ? `Product Size` : size.map(x => x)} disabled className="input rounded-r-none w-[60%] disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
+                    <input type="text" placeholder={size.length === 0 ? `Product Size` : size.map(x => x)} disabled className="input rounded-r-none w-[60%] disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" required />
 
                     <input type="text" onChange={getData} name='productSize' placeholder="Add size" value={sizeInput} className="input rounded-none w-[30%] my-1 focus:outline-none" />
 
@@ -192,9 +208,14 @@ const handleAddSizeWiseQuantity =()=>{
                         })}
                     type="number"
                     placeholder={`Quantity of ${sizeWiseQuantityInput.size} size`}
-                    className="input w-full my-1 ml-1 sm:w-[40%]  rounded-r-none" />
+                    className="input w-full my-1 sm:ml-1 sm:w-[40%]  sm:rounded-r-none" />
 
-                    <div onClick={handleAddSizeWiseQuantity} className='bg-amber-500 input rounded-l-none w-[20%] p-2 text-white text-3xl font-bold flex text-center justify-center'><IoIosAdd></IoIosAdd></div>
+                    <div onClick={handleAddSizeWiseQuantity} className='bg-amber-500 input sm:rounded-l-none sm:w-[20%] p-2 text-white text-3xl font-bold flex text-center justify-center'><IoIosAdd></IoIosAdd></div>
+                </div>
+
+
+                <div className=' my-4 w-full rounded sm:flex items-center justify-center'>
+                    <button className='bg-amber-500 text-white font-bold w-[60%] p-2 rounded-full hover:border-2 hover:border-amber-500 hover:text-amber-400 hover:bg-[#002828]' type="submit">Upload Product</button>
                 </div>
 
             </form>

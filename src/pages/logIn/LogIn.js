@@ -56,7 +56,7 @@ const LogIn = () => {
                 <div className='m-auto'>
                     <img className='w-12 h-12 rounded-full drop-shadow-md mt-6' src="https://cdn.dribbble.com/users/166512/screenshots/4725462/untitled-2.gif" alt="" />
                 </div>
-                <h1 className='text-center text-2xl font-bold text-[#6FB3B8] drop-shadow-sm'>Sign up</h1>
+                <h1 className='text-center text-2xl font-bold text-[#6FB3B8] drop-shadow-sm'>Login</h1>
 
                 <form onSubmit={handleSubmit} action="" className='w-full py-3  flex flex-col '>
 
@@ -91,7 +91,7 @@ const LogIn = () => {
                         </span>
                     </div>
 
-                    <button className='w-full m-auto max-w-[150px] bg-[#6FB3B8] hover:bg-[#388087] font-medium text-xl hover:text-white py-1 rounded-full mt-4'>Sign up</button>
+                    <button className='w-full m-auto max-w-[150px] bg-[#6FB3B8] hover:bg-[#388087] font-medium text-xl hover:text-white py-1 rounded-full mt-4'>Login</button>
 
                 </form>
                 <p className='text-sm mt-3 mb-4'>Already have an account? Please <Link to='/signup' className='text-[#388087] font-bold border-b-[1px] border-[#388087]'>Sign up</Link></p>
