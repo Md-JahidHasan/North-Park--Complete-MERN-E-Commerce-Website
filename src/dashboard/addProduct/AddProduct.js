@@ -100,7 +100,7 @@ const handleAddSizeWiseQuantity =()=>{
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
                     <input name='name' value={data.name} onChange={handleOnChange} type="text" placeholder="Product Name" className="input w-full my-1 sm:w-3/5" />
 
-                    <select name='category' value={data.category} onChange={handleOnChange} className="select sm:ml-1 w-full sm:w-2/5">
+                    <select name='category' value={data.category} onChange={handleOnChange} required className="select sm:ml-1 w-full sm:w-2/5">
                         <option disabled selected>Select Category</option>
                         <option>Shirt</option>
                         <option>T-Shirt</option>
@@ -117,37 +117,37 @@ const handleAddSizeWiseQuantity =()=>{
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input name='price' value={data.price} onChange={handleOnChange} type="text" placeholder="Product Price" className="input w-full" />
+                    <input name='price' value={data.price} onChange={handleOnChange} required type="text" placeholder="Product Price" className="input w-full" />
 
-                    <input name='model' value={data.model} onChange={handleOnChange} type="text" placeholder="Product model" className="input sm:ml-1 w-full my-1" />
+                    <input name='model' value={data.model} onChange={handleOnChange} required type="text" placeholder="Product model" className="input sm:ml-1 w-full my-1" />
                 </div>
 
 
                 <div className=' mb-2 w-full rounded sm:flex items-center justify-center'>
-                    <select name='type' value={data.type} onChange={handleOnChange} className="select  w-full sm:w-2/5">
+                    <select name='type' value={data.type} onChange={handleOnChange} required className="select  w-full sm:w-2/5">
                         <option disabled selected>Select Type</option>
                         <option>Formal</option>
                         <option>Casual</option>
                     </select>
 
-                    <input name='composition' value={data.composition} onChange={handleOnChange} type="text" placeholder="Product Composition" className="input w-full sm:ml-1" />
+                    <input name='composition' value={data.composition} onChange={handleOnChange} type="text" placeholder="Product Composition" required className="input w-full sm:ml-1" />
                 </div>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input name='quantity' value={data.quantity} onChange={handleOnChange} type="text" placeholder="Quantity" className="input w-full" />
-                    <input name='style' value={data.style} onChange={handleOnChange} type="text" placeholder="Style" className="input sm:ml-1 w-full" />
+                    <input name='quantity' value={data.quantity} onChange={handleOnChange} type="text" placeholder="Quantity" required className="input w-full" />
+                    <input name='style' value={data.style} onChange={handleOnChange} type="text" placeholder="Style" required className="input sm:ml-1 w-full" />
                 </div>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input name='properties' value={data.properties} onChange={handleOnChange} type="text" placeholder="Properties" className="input w-full" />
-                    <input name='categoryId' value={data.categoryId} onChange={handleOnChange} type="text"  placeholder="Category Id" className="input sm:ml-1 w-full my-1" />
+                    <input name='properties' value={data.properties} onChange={handleOnChange} type="text" placeholder="Properties" required className="input w-full" />
+                    <input name='categoryId' value={data.categoryId} onChange={handleOnChange} type="text"  placeholder="Category Id" required className="input sm:ml-1 w-full my-1" />
                 </div>
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <textarea name='details' value={data.details} onChange={handleOnChange} className="textarea w-full" placeholder="Product Detail"></textarea>
+                    <textarea name='details' required value={data.details} onChange={handleOnChange} className="textarea w-full" placeholder="Product Detail"></textarea>
                 </div>
                 
 
