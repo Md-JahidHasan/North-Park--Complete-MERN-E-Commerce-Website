@@ -36,6 +36,34 @@ const AddProduct = () => {
     
 // =================================================================
 
+
+// ==================== Products Photo Upload ====================== 
+const handleUploadProductImage = (e) =>{
+    const imageHostKey = process.env.REACT_APP_imgbb_API_key;
+    const photo = e.target.files[0];
+    const formData = new FormData();
+    formData.append('image', photo);
+
+    const url = `https://api.imgbb.com/1/upload?&key=${imageHostKey}`
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+        .then(res => res.json())
+        .then(imgData => {
+            console.log(imgData.data.display_url);
+            setData((preve) => {
+                return {
+                    ...preve,
+                    image: imgData.data.display_url
+                }
+            })
+            console.log("Data after image upload=", data);
+        })
+}
+// =================================================================
+
+
 // ================= Products all Size adding feature ================== 
     const [sizeInput, setSizeInput] = useState('')
     const getData =(size) =>{
@@ -60,7 +88,6 @@ const [sizeWiseQuantityInput, setSizeWiseQuantityInput] = useState({
     size: '',
     quantity: 0
 })
-// const [sizeWiseQuantity, setSizeWiseQuantity] = useState([]);
 const handleAddSizeWiseQuantity =()=>{
     if(sizeWiseQuantityInput.size.length === 0){
         alert('PLease select size and add quantity..')
@@ -105,9 +132,9 @@ const handleFormSubmit = (e) =>{
                 <label htmlFor="productImage" className=' my-1 w-full bg-white rounded flex items-center justify-center relative hover:opacity-90  hover:font-bold '>
                         <img className='w-[180px]' src={picUploadLogo} alt="" />
                         <div className='absolute top-[60%] left-[38%]'>
-                            <p className=''>Uppload Image</p>
+                            <p className=''>Upload Image</p>
                         </div>
-                        <input type="file" className='hidden' name="productImage" id="productImage" required />
+                        <input onChange={handleUploadProductImage} type="file" className='hidden' name="productImage" id="productImage" required />
                     
                 </label>
 
