@@ -42,21 +42,10 @@ const AddProduct = () => {
         setSizeInput(size.target.value)
     }
     
-    const [size, setSize] = useState([]);
     const handleAddSize = (size) => {
         if(sizeInput===''){
             alert('Please enter size!')
         }else{
-            setSize((prev) => {
-                return [...prev, sizeInput]
-            })
-            // setData((prev)=>{
-            //     return {
-            //         ...prev,
-            //         [size]: (prev)=>  [...prev, sizeInput]
-                    
-            //     }
-            // })
             data.size.push(sizeInput)
             setSizeInput('')
             console.log(data.size);
@@ -71,17 +60,11 @@ const [sizeWiseQuantityInput, setSizeWiseQuantityInput] = useState({
     size: '',
     quantity: 0
 })
-const [sizeWiseQuantity, setSizeWiseQuantity] = useState([]);
+// const [sizeWiseQuantity, setSizeWiseQuantity] = useState([]);
 const handleAddSizeWiseQuantity =()=>{
     if(sizeWiseQuantityInput.size.length === 0){
         alert('PLease select size and add quantity..')
     }else{
-        setSizeWiseQuantity((prev)=>{
-            return [
-                ...prev,
-                sizeWiseQuantityInput
-            ]
-        })
         data.sizeWiseQuantity.push(sizeWiseQuantityInput)
     }
 }
@@ -120,14 +103,11 @@ const handleFormSubmit = (e) =>{
 
 
                 <label htmlFor="productImage" className=' my-1 w-full bg-white rounded flex items-center justify-center relative hover:opacity-90  hover:font-bold '>
-                    {/* <label htmlFor="productImage"> */}
                         <img className='w-[180px]' src={picUploadLogo} alt="" />
                         <div className='absolute top-[60%] left-[38%]'>
                             <p className=''>Uppload Image</p>
                         </div>
                         <input type="file" className='hidden' name="productImage" id="productImage" required />
-                    {/* </label> */}
-                    {/* <BsCloudUpload></BsCloudUpload> */}
                     
                 </label>
 
@@ -168,7 +148,7 @@ const handleFormSubmit = (e) =>{
                 
 
                 <div className=' w-full rounded flex items-center justify-center'>
-                    <input type="text" placeholder={size.length === 0 ? `Product Size` : size.map(x => x)} disabled className="input rounded-r-none w-[60%] disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" required />
+                    <input type="text" placeholder={data.size.length === 0 ? `Product Size` : data.size.map(x => x)} disabled className="input rounded-r-none w-[60%] disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" required />
 
                     <input type="text" onChange={getData} name='productSize' placeholder="Add size" value={sizeInput} className="input rounded-none w-[30%] my-1 focus:outline-none" />
 
@@ -177,7 +157,7 @@ const handleFormSubmit = (e) =>{
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder={sizeWiseQuantity.length === 0 ? `Product size name : Quantity of that size` : sizeWiseQuantity.map(x => `${x.size}:${x.quantity}`)} disabled className="input  w-full disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
+                    <input type="text" placeholder={data.sizeWiseQuantity.length === 0 ? `Product size name : Quantity of that size` : data.sizeWiseQuantity.map(x => `${x.size}:${x.quantity}`)} disabled className="input  w-full disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
                 </div>
 
 
@@ -192,10 +172,10 @@ const handleFormSubmit = (e) =>{
                     className="select  w-full sm:w-[40%]"
                     >
                         {
-                            size.length === 0 ? <option disabled selected>Add sizes firstly</option> : <option disabled selected>Select Size</option>
+                            data.size.length === 0 ? <option disabled selected>Add sizes firstly</option> : <option disabled selected>Select Size</option>
                         }
                         {
-                            size.map(s => <option>{s}</option>)
+                            data.size.map(s => <option>{s}</option>)
                         }
                     </select>
 
