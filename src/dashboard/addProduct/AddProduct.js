@@ -52,35 +52,23 @@ const handleUploadProductImage = (e) =>{
         .then(res => res.json())
         .then(imgData => {
             console.log(imgData.data.display_url);
+            
             setData((preve) => {
                 return {
                     ...preve,
                     image: imgData.data.display_url
                 }
             })
+
+
+            data.image = imgData.data.display_url
             console.log("Data after image upload=", data);
         })
 }
 // =================================================================
 
 
-// ================= Products all Size adding feature ================== 
-    const [sizeInput, setSizeInput] = useState('')
-    const getData =(size) =>{
-        setSizeInput(size.target.value)
-    }
-    
-    const handleAddSize = (size) => {
-        if(sizeInput===''){
-            alert('Please enter size!')
-        }else{
-            data.size.push(sizeInput)
-            setSizeInput('')
-            console.log(data.size);
-        }
-        
-    }
-// ====================================================================
+
 
 
 // ============ Products Size wise Quantity adding feature ============
@@ -88,24 +76,70 @@ const [sizeWiseQuantityInput, setSizeWiseQuantityInput] = useState({
     size: '',
     quantity: 0
 })
+
+const [sizeWiseQuantity, setSizeWiseQuantity] = useState([]);
 const handleAddSizeWiseQuantity =()=>{
     if(sizeWiseQuantityInput.size.length === 0){
         alert('PLease select size and add quantity..')
     }else{
+        console.log('s',sizeWiseQuantityInput);
+        console.log(data);
+        setSizeWiseQuantity((prev) => {
+            return [
+                ...prev,
+                sizeWiseQuantityInput
+            ]
+        })
+
         data.sizeWiseQuantity.push(sizeWiseQuantityInput)
     }
 }
 // =========================================================
 
+    // ================= Products all Size adding feature ================== 
+    const [sizeInput, setSizeInput] = useState('')
+    const getData = (size) => {
+        setSizeInput(size.target.value)
+    }
 
-// =================== Handle Form  ========================
-const handleFormSubmit = (e) =>{
-    e.preventDefault()
-    console.log(data);
-    console.log('asd');
+    const handleAddSize = (size) => {
+        if (sizeInput === '') {
+            alert('Please enter size!')
+        } else {
+            data.size.push(sizeInput)
+            setSizeInput('')
+            console.log(data.size);
+        }
+
+    }
+// ====================================================================
+
+
+
+// =============Uplode Product Data To database==============
+const uplodeDataToDatabase =async()=>{
+    const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/products`,{
+        method: 'POST',
+        headers: {
+            "content-type":"application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    const responseData = await fetchData.json()
+    console.log(responseData);
+    alert("Product Added Successfully!")
 }
-// =========================================================
+// ==========================================================
 
+
+    // =================== Handle Form  ========================
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+        console.log(data);
+        console.log('asd');
+        uplodeDataToDatabase()
+    }
+// =========================================================
 
     // console.log(data);
 
@@ -129,14 +163,24 @@ const handleFormSubmit = (e) =>{
                 </div>
 
 
-                <label htmlFor="productImage" className=' my-1 w-full bg-white rounded flex items-center justify-center relative hover:opacity-90  hover:font-bold '>
-                        <img className='w-[180px]' src={picUploadLogo} alt="" />
-                        <div className='absolute top-[60%] left-[38%]'>
-                            <p className=''>Upload Image</p>
-                        </div>
-                        <input onChange={handleUploadProductImage} type="file" className='hidden' name="productImage" id="productImage" required />
-                    
-                </label>
+                {
+                    data.image ? 
+                        <label htmlFor="productImage" className=' my-1 w-full bg-amber-500 rounded flex items-center justify-center relative hover:opacity-90  hover:font-bold border-2'>
+                            <img className='w-[200px] h-[180px] border-6 border-amber-500' src={data.image} alt="" />
+                        
+                            <input onChange={handleUploadProductImage} type="file" className='hidden' name="productImage" id="productImage" required />
+
+                        </label>
+                        :
+                        <label htmlFor="productImage" className=' my-1 w-full bg-white rounded flex items-center justify-center relative hover:opacity-90  hover:font-bold '>
+                            <img className='w-[180px]' src={picUploadLogo} alt="" />
+                            <div className='absolute top-[60%] left-[38%]'>
+                                <p className=''>Upload Image</p>
+                            </div>
+                            <input onChange={handleUploadProductImage} type="file" className='hidden' name="productImage" id="productImage" required />
+
+                        </label>
+                }
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
@@ -184,7 +228,7 @@ const handleFormSubmit = (e) =>{
 
 
                 <div className=' my-1 w-full rounded sm:flex items-center justify-center'>
-                    <input type="text" placeholder={data.sizeWiseQuantity.length === 0 ? `Product size name : Quantity of that size` : data.sizeWiseQuantity.map(x => `${x.size}:${x.quantity}`)} disabled className="input  w-full disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
+                    <input type="text" placeholder={sizeWiseQuantity.length === 0 ? `Product size name : Quantity of that size` : sizeWiseQuantity.map(x => `${x.size}:${x.quantity}`)} disabled className="input  w-full disabled:bg-yellow-100   disabled:placeholder-[#002828] disabled:border-2 disabled:border-amber-500" />
                 </div>
 
 
@@ -223,8 +267,9 @@ const handleFormSubmit = (e) =>{
 
                 <div className=' my-4 w-full rounded sm:flex items-center justify-center'>
                     <button className='bg-amber-500 text-white font-bold w-[60%] p-2 rounded-full hover:border-2 hover:border-amber-500 hover:text-amber-400 hover:bg-[#002828]' type="submit">Upload Product</button>
+                    
                 </div>
-
+                <input type="submit" value="Upload" />
             </form>
         </div>
     );

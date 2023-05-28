@@ -93,6 +93,11 @@ app.get('/products', async(req, res)=>{
     res.send(products)
 })
 
+app.post('/products', async(req, res)=>{
+    const data = req.body;
+    console.log(data);
+})
+
 app.get('/shopProducts',
 async(req, res)=>{
     const search = req.query.search;
