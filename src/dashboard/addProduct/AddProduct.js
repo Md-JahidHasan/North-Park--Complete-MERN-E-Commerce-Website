@@ -266,7 +266,7 @@ const uplodeDataToDatabase =async()=>{
 
 
                 <div className=' my-4 w-full rounded sm:flex items-center justify-center'>
-                    <button className='bg-amber-500 text-white font-bold w-[60%] p-2 rounded-full hover:border-2 hover:border-amber-500 hover:text-amber-400 hover:bg-[#002828]' type="submit">Upload Product</button>
+                    <button onClick={handleFormSubmit} className='bg-amber-500 text-white font-bold w-[60%] p-2 rounded-full hover:border-2 hover:border-amber-500 hover:text-amber-400 hover:bg-[#002828]' type="submit">Upload Product</button>
                     
                 </div>
                 <input type="submit" value="Upload" />

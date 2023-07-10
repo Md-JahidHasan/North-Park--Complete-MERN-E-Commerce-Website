@@ -20,6 +20,8 @@ mongoose.connect(process.env.MONGODB_URL)
 })
 
 
+
+
 // =======######## User Section #########=======
 // ========= Data Schema ==========
 const userSchema = mongoose.Schema({ 
@@ -65,6 +67,8 @@ app.post("/signup", async(req, res)=>{
 })
 
 
+
+
 // =======######## Product Section #########=======
 // ========== Product Schema ============
 const productSchema = mongoose.Schema({
@@ -95,13 +99,16 @@ app.get('/products', async(req, res)=>{
 
 app.post('/products', async(req, res)=>{
     const data = req.body;
-    console.log(data);
+    const products = await productModel(data).save();
+    // console.log(data)
+    // console.log('products--',products);
 })
 
 app.get('/shopProducts',
 async(req, res)=>{
     const search = req.query.search;
-    console.log('---',search);
+    // console.log('---',search);
+
     let query = {}
     if(search.length > 0){
         query = {
