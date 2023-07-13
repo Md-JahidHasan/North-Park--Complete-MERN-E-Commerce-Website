@@ -93,7 +93,7 @@ const productModel = mongoose.model('product', productSchema);
 
 app.get('/newProducts', async(req, res)=>{
     const query = {};
-    const products = await productModel.find(query);
+    const products = await productModel.find(query).sort({_id:-1}).limit(4);
     res.send(products)
 })
 
@@ -118,7 +118,7 @@ async(req, res)=>{
         };
     }
     
-    const products = await productModel.find(query);
+    const products = await productModel.find(query).sort({_id:-1});
     res.send(products)
 })
 

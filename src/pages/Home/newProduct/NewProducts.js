@@ -10,7 +10,7 @@ const NewProducts = () => {
         dispatch(fetchNewProducts())
     }, [dispatch]);
     const {products, isLoading, isError, error} = useSelector((state)=>state.newProducts)
-    console.log(products, isLoading, isError, error);
+    // console.log(products, isLoading, isError, error);
     
     let content;
     if(isLoading) content = <Loading></Loading>
@@ -21,7 +21,7 @@ const NewProducts = () => {
     if(!isError && !isLoading && products?.length > 0){
         content = <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center  gap-8 mx-10'>
             {
-                products.map(product => <NewProduct key={product.id} product={product}></NewProduct>)
+                products.map(product => <NewProduct key={product._id} product={product}></NewProduct>)
             }
 
         </div>

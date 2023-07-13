@@ -24,7 +24,7 @@ const Shop = () => {
     if (!isError && !isLoading && products?.length > 0) {
         content = <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center  gap-8 mx-10'>
             {
-                products.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
+                products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
             }
 
         </div>
