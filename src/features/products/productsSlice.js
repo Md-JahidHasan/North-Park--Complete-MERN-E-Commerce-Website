@@ -5,10 +5,10 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit")
 
 // ========== Initial State ===========
 const initialState = {
-    products: [],
+    products: ['ee'],
     isLoading: false,
     isError: false,
-    error: ""
+    error: "e"
 }
 
 

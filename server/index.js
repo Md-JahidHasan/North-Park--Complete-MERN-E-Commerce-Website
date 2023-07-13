@@ -91,7 +91,7 @@ const productSchema = mongoose.Schema({
 // ========== Product Model =========
 const productModel = mongoose.model('product', productSchema);
 
-app.get('/products', async(req, res)=>{
+app.get('/newProducts', async(req, res)=>{
     const query = {};
     const products = await productModel.find(query);
     res.send(products)

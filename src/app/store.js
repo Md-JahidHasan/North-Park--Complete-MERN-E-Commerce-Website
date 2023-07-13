@@ -3,6 +3,7 @@ import counterReducer from '../features/counter/counterSlice';
 import productsReducer from '../features/products/productsSlice';
 import productReducer from '../features/product/productSlice';
 import filterReducer from '../features/search/filterSlice';
+import newProductsReducer from '../features/newProducts/newProductsSlice';
 
 
 export const store = configureStore({
@@ -10,6 +11,7 @@ export const store = configureStore({
     counter: counterReducer,
     products: productsReducer,
     product: productReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    newProducts: newProductsReducer
   },
 });
