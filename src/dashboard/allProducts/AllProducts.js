@@ -8,7 +8,7 @@ const AllProducts = () => {
     let content;
 
     if(!isError && !isLoading && products.length > 0){
-        content = <div className="overflow-x-auto">
+        content = <div className="overflow-x-auto pb-8">
             <table className="table">
                 {/* head */}
                 <thead>
@@ -55,7 +55,7 @@ const AllProducts = () => {
         </div>
     }
     return (
-        <div className='min-h-screen '>
+        <div className='min-h-screen'>
             <h1 className='text-amber-400 font-bold text-center text-xl p-6'>All Products</h1>
             {
                 content
